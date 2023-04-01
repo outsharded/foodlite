@@ -5,25 +5,27 @@ const options = {
   method: 'GET',
   url: 'https://api.spoonacular.com/recipes/complexSearch',
   params: {
-    includeIngredients: 'beetroot, cabbage, cheddar',
-    sortDirection: 'asc',
-    diet: 'vegetarian',
-    ignorePantry: 'true',
-    sort: 'max-used-ingredients',
+//    diet: 'vegetarian',
+    includeIngredients: 'potatoes, cabbage, pastry',
     type: 'main course',
+    fillIngredients: true,
+    sort: 'min-missing-ingredients',
     number: '5',
   },
   headers: {
     'X-API-Key': process.env.SPOONACULAR_API,
+    'Content-Type': 'application/json',
   }
 };
 
 axios.request(options).then(function (response) {
   const arr = response.data.results;
-  let recipes = "";
-
+  let recipes = "Recipes:";
+if (arr.length === 0) {
+  console.warn('No recipes found')
+} else {
   for (let i = 0; i < arr.length; i++) {
-    recipes += arr[i].title + ', ';
+    recipes += i + arr[i].title + ', ';
   }
   console.log(recipes);
   var title = response.data.results[0].title.replace(/ +/g, '-').toLowerCase()
@@ -35,6 +37,7 @@ axios.request(options).then(function (response) {
     url: `https://api.spoonacular.com/recipes/${id}/ingredientWidget.json`,
     headers: {
       'X-API-Key': process.env.SPOONACULAR_API,
+      'Content-Type': 'application/json',
     }
   };
 
@@ -51,6 +54,7 @@ axios.request(options).then(function (response) {
   }).catch(function (error) {
     console.error(error);
   });
+}
 }).catch(function (error) {
 	console.error(error);
 });
