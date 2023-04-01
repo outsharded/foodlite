@@ -1,4 +1,5 @@
 const axios = require("axios");
+require('dotenv').config()
 
 const options = {
   method: 'GET',
@@ -13,7 +14,7 @@ const options = {
     number: '5',
   },
   headers: {
-    'X-API-Key': '426bb09bb5df41a78f7ae049b5ecc1f9',
+    'X-API-Key': process.env.SPOONACULAR_API,
   }
 };
 
@@ -33,7 +34,7 @@ axios.request(options).then(function (response) {
     method: 'GET',
     url: `https://api.spoonacular.com/recipes/${id}/ingredientWidget.json`,
     headers: {
-      'X-API-Key': '426bb09bb5df41a78f7ae049b5ecc1f9',
+      'X-API-Key': process.env.SPOONACULAR_API,
     }
   };
 
