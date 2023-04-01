@@ -1,0 +1,10 @@
+let recipes = "";
+
+  for (let i = 0; i < recipeArray.length; i++) {
+    recipes += recipeArray[i].title + ', ';
+  }
+  console.log(recipes);
+
+  var title = response.data.results[0].title.replace(/ +/g, '-').toLowerCase()
+  var id = response.data.results[0].id
+  console.log('https://spoonacular.com/recipes/' + title + '-' + id)

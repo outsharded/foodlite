@@ -1,0 +1,28 @@
+{
+  "name": "foodlite",
+  "version": "0.1.0",
+  "description": "Create recipes from ingredients, and check prices",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tectrainguy/foodlite.git"
+  },
+  "keywords": [
+    "recipe",
+    "food",
+    "prices",
+    "uk"
+  ],
+  "author": "tectrainguy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tectrainguy/foodlite/issues"
+  },
+  "homepage": "https://github.com/tectrainguy/foodlite#readme",
+  "dependencies": {
+    "axios": "^1.3.4"
+  }
+}
