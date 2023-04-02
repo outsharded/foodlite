@@ -1,7 +1,7 @@
 {
   "name": "foodlite",
   "version": "0.1.0",
-  "private": true,
+  "description": "Create recipes from ingredients",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -27,7 +27,7 @@
 
 .description p {
   position: relative;
-  margin: 0;
+  margin: 1rem;
   padding: 1rem;
   background-color: rgba(var(--callout-rgb), 0.5);
   border: 1px solid rgba(var(--callout-border-rgb), 0.3);
@@ -52,6 +52,51 @@
   background: rgba(var(--card-rgb), 0);
   border: 1px solid rgba(var(--card-border-rgb), 0);
   transition: background 200ms, border 200ms;
+}
+
+.formcontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: var(--max-width);
+  margin-top: 1rem;
+}
+
+.formcontainer button {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.forminput {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.forminput:focus {
+  outline: none;
+  box-shadow: var(--box-shadow-active);
+}
+
+.formbutton {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  padding: 1rem 1rem;
+  cursor: pointer;
+  transition: background-color 200ms;
+}
+
+.formbutton:hover {
+  background-color: var(--primary-color-dark);
 }
 
 .card span {
