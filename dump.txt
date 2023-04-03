@@ -58,3 +58,4 @@ if (arr.length === 0) {
 }).catch(function (error) {
 	console.error(error);
 });
+each of the `name` values from the response.data.ingredients array

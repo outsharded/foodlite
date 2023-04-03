@@ -34,6 +34,25 @@
   border-radius: var(--border-radius);
 }
 
+.menuitem {
+  background-color: #333333;
+  color: #ffffff;
+  padding: 10px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  font-family: var(--font-mono);
+}
+
+.menuitem:hover {
+  background-color: #666666;
+}
+
+.menutitle {
+  font-weight: bold;
+}
+
+
 .code {
   font-weight: 700;
   font-family: var(--font-mono);

@@ -5,6 +5,7 @@ import styles from '@/styles/Home.module.css'
 import Link from 'next/link'
 import axios from 'axios'
 import { useState } from 'react'
+//require('dotenv').config()
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,32 +14,34 @@ export default function Home() {
   const [menu, setMenu] = useState([])
 
   const handleFormSubmit = async (event) => {
-    event.preventDefault()
+    event.preventDefault();
     try {
-    const response = await axios.get('https://api.spoonacular.com/recipes/complexSearch', {
-      params: {
-        includeIngredients: inputValue,
-        type: 'main course',
-        fillIngredients: true,
-        sort: 'min-missing-ingredients',
-        number: '5',
-      },
-      headers: {
-        'X-API-Key': process.env.SPOONACULAR_API,
-        'Content-Type': 'application/json',
-      }
-    })
-  } catch (error) {
-    console.error(error);
-  }
-    setMenu(response.data.results.map((result) => ({ title: result.title, position: result.id })))
+      const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch`, {
+        params: {
+          includeIngredients: `${inputValue}`,
+          type: 'main course',
+          fillIngredients: true,
+          sort: 'min-missing-ingredients',
+          number: '5',
+        },
+        headers: {
+          'x-api-key': 'bb17589108dd4b9f8b25a6c537de9094',
+          'Content-Type': 'application/json',
+        }
+      });
+      console.log(response);
+      setMenu(response.data.results.map((result) => ({ title: result.title, position: result.id })));
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   const handleMenuClick = async (position) => {
+    let response;
     try {
-    const response = await axios.get(`https://api.spoonacular.com/recipes/${position}/ingredientWidget.json`, {
+    response = await axios.get(`https://api.spoonacular.com/recipes/${position}/ingredientWidget.json`, {
       headers: {
-        'X-API-Key': process.env.SPOONACULAR_API,
+        'x-api-key': 'bb17589108dd4b9f8b25a6c537de9094',
         'Content-Type': 'application/json',
       }
     })
